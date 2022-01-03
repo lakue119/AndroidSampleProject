@@ -1,0 +1,18 @@
+package com.dn.neighborhoodchores.utils.provider
+
+import android.content.Context
+import androidx.annotation.ColorRes
+import androidx.annotation.StringRes
+import com.dn.neighborhoodchores.utils.provider.ResourcesProvider
+
+class DefaultResourcesProvider(
+    private val context: Context
+) : ResourcesProvider {
+
+    override fun getString(@StringRes resId: Int): String = context.getString(resId)
+
+    override fun getString(@StringRes resId: Int, vararg formatArgs: Any): String = context.getString(resId, *formatArgs)
+
+    override fun getColorStateList(@ColorRes resId: Int) = context.getColorStateList(resId)
+
+}
