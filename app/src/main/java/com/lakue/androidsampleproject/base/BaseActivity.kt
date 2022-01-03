@@ -12,7 +12,7 @@ import com.lakue.androidsampleproject.extension.showToast
 import com.lakue.androidsampleproject.utils.Event
 import java.lang.reflect.ParameterizedType
 
-class BaseActivity<B : ViewDataBinding, VM : BaseViewModel>(
+open class BaseActivity<B : ViewDataBinding, VM : BaseViewModel>(
     @LayoutRes private val layoutResId: Int,
 ) : AppCompatActivity() {
     val Tag = BaseActivity::class.java.name

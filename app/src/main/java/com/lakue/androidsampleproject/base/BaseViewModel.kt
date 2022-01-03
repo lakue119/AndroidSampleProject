@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.lakue.androidsampleproject.utils.EventLiveData
 
-class BaseViewModel : ViewModel() {
+open class BaseViewModel : ViewModel() {
 
     private val _liveLoading = MutableLiveData(false)
     val liveLoading: LiveData<Boolean> get() = _liveLoading
