@@ -19,6 +19,24 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    flavorDimensions "version"
+    productFlavors {
+        dev {
+            applicationIdSuffix ".dev"
+            versionCode 1
+            versionName "1.0.0"
+            buildConfigField "String", "BASE_URL", '"https://pokeapi.co"'
+        }
+
+        ope {
+
+            applicationIdSuffix ".ope"
+            versionCode 1
+            versionName "1.0.0"
+            buildConfigField "String", "BASE_URL", '"https://pokeapi.co"'
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
