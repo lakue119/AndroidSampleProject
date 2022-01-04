@@ -5,6 +5,7 @@ import android.os.Build
 import android.os.LocaleList
 import androidx.annotation.RequiresApi
 import com.google.gson.Gson
+import com.lakue.androidsampleproject.BuildConfig
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -27,10 +28,10 @@ class NetworkModule {
 
     @Provides
     @Singleton
-    fun provideRetrofit(okHttpClient: OkHttpClient, gson: Gson): Retrofit =
+    fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit =
         Retrofit.Builder()
             .baseUrl(BuildConfig.BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create(gson))
+            .addConverterFactory(GsonConverterFactory.create())
 //            .addConverterFactory(ScalarsConverterFactory.create())
             .client(okHttpClient)
             .build()
@@ -48,17 +49,7 @@ class NetworkModule {
                     application.resources.configuration.locales
                 val requestBuilder = original
                     .newBuilder()
-//                    .header("CH-Languages", locales.toLanguageTags())
-//                    .header("CH-Locale", locales[0].toLanguageTag().replace('-', '_'))
                     .header("Accept", "application/json")
-//                    .header("CH-AppBuild", API_BUILD_ID)
-//                    .header("CH-AppVersion", API_BUILD_VERSION)
-//                    .header("User-Agent", API_UA)
-//                    .header("CH-DeviceId", prefManager.deviceId)
-                if (userManager.getLoginCheck()) {
-                    requestBuilder.header("authorization", "Bearer " + userManager.userToken)
-//                        .header("CH-UserID", userManager.userId)
-                }
 
                 val newRequest = requestBuilder.build()
                 it.proceed(newRequest)
