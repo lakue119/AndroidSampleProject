@@ -5,8 +5,10 @@ import android.view.ViewGroup
 import com.dn.neighborhoodchores.utils.provider.ResourcesProvider
 import com.lakue.androidsampleproject.base.BaseViewHolder
 import com.lakue.androidsampleproject.base.BaseViewModel
+import com.lakue.androidsampleproject.databinding.ItemPocketBinding
 import com.lakue.androidsampleproject.remote.model.base.CellType
 import com.lakue.androidsampleproject.remote.model.base.Model
+import com.lakue.androidsampleproject.ui.main.MainViewHolder
 
 object ModelViewHolderMapper {
 
@@ -19,12 +21,12 @@ object ModelViewHolderMapper {
     ): BaseViewHolder<M> {
         val inflater = LayoutInflater.from(parent.context)
         val viewHolder = when (type) {
-//            CellType.EMPTY_CELL ->
-//                PheedViewHolder(
-//                    ItemPheedBinding.inflate(inflater, parent, false),
-//                    viewModel,
-//                    resourcesProvider
-//                )
+            CellType.NORMAL_CELL ->
+                MainViewHolder(
+                    ItemPocketBinding.inflate(inflater, parent, false),
+                    viewModel,
+                    resourcesProvider
+                )
 
             else -> {}
         }
