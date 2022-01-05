@@ -21,14 +21,13 @@ object ModelViewHolderMapper {
     ): BaseViewHolder<M> {
         val inflater = LayoutInflater.from(parent.context)
         val viewHolder = when (type) {
+            CellType.EMPTY_CELL -> {}
             CellType.NORMAL_CELL ->
                 MainViewHolder(
                     ItemPocketBinding.inflate(inflater, parent, false),
                     viewModel,
                     resourcesProvider
                 )
-
-            else -> {}
         }
 
         return viewHolder as BaseViewHolder<M>
