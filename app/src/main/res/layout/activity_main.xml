@@ -4,64 +4,66 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <import type="android.view.View"/>
+
+        <import type="android.view.View" />
+
         <variable
             name="activity"
             type="com.lakue.androidsampleproject.ui.main.MainActivity" />
+
         <variable
             name="vm"
             type="com.lakue.androidsampleproject.ui.main.MainViewModel" />
     </data>
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <com.google.android.material.appbar.AppBarLayout
-                app:elevation="0dp"
-                android:background="@color/black"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:background="@color/black"
+                app:elevation="0dp">
 
                 <androidx.appcompat.widget.Toolbar
-                    app:contentInsetStart="0dp"
-                    app:layout_scrollFlags="scroll|enterAlwaysCollapsed"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    app:contentInsetStart="0dp"
+                    app:layout_scrollFlags="scroll|enterAlwaysCollapsed">
 
                     <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_marginLeft="20dp"
                         android:layout_marginRight="20dp"
-                        android:textColor="@color/black"
-                        android:paddingBottom="8dp"
-                        android:paddingTop="8dp"
-                        android:paddingStart="12dp"
-                        android:paddingEnd="12dp"
                         android:background="@drawable/background_round22_stroke_eee"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+                        android:paddingStart="12dp"
+                        android:paddingTop="8dp"
+                        android:paddingEnd="12dp"
+                        android:paddingBottom="8dp"
+                        android:textColor="@color/black" />
 
                 </androidx.appcompat.widget.Toolbar>
 
             </com.google.android.material.appbar.AppBarLayout>
 
             <FrameLayout
-                app:layout_behavior="@string/appbar_scrolling_view_behavior"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rvPocket"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     lakue_item="@{vm.livePocketInfo}"
-                    lakue_viewModel="@{vm}"
-                    lakue_resProvider="@{activity.resourcesProvider}"
                     lakue_listsner="@{activity.adapterListsnser}"
+                    lakue_resProvider="@{activity.resourcesProvider}"
+                    lakue_viewModel="@{vm}"
                     onBottomCatchEvent="@{activity.rvBottomCatch}"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"

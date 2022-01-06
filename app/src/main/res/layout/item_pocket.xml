@@ -23,6 +23,7 @@
         android:layout_height="wrap_content">
 
         <TextView
+            android:id="@+id/tvTitle"
             android:text="@{item.name}"
             android:bufferType="spannable"
             android:textSize="15dp"

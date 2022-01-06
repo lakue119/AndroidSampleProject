@@ -28,6 +28,10 @@ class BaseAdapter<M : Model, VM: BaseViewModel>(
         return ModelViewHolderMapper.map(parent, CellType.values()[viewType], viewModel, resourcesProvider)
     }
 
+    override fun getItemId(position: Int): Long {
+        return super.getItemId(position)
+    }
+
     @Suppress("UNCHECKED_CAST")
     override fun onBindViewHolder(holder: BaseViewHolder<M>, position: Int) {
         Log.i("WQELKRJWKELRJKL", "$position / ${modelList.size} : ${modelList[position]} ")

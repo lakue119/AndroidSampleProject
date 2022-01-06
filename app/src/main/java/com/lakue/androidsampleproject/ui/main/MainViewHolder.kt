@@ -14,6 +14,7 @@ class MainViewHolder (
 ): BaseViewHolder<ResultPocket>(binding, viewModel, resourcesProvider) {
 
     override fun reset() = with(binding) {
+        tvTitle.text = ""
 //        restaurantImage.clear()
     }
 
